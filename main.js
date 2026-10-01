@@ -2,6 +2,7 @@
 (function () {
   var root = document.documentElement;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function remember(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
 
   // Light/dark toggle, remembered when storage is available.
   var toggle = document.querySelector('.theme-toggle');
@@ -11,9 +12,61 @@
         ? root.dataset.theme === 'dark'
         : window.matchMedia('(prefers-color-scheme: dark)').matches;
       root.dataset.theme = dark ? 'light' : 'dark';
-      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      remember('theme', root.dataset.theme);
     });
   }
+
+  // Accent: Miku teal or pink.
+  var accent = document.querySelector('.accent-toggle');
+  if (accent) {
+    var syncAccent = function () {
+      var pink = root.dataset.accent === 'pink';
+      accent.setAttribute('aria-pressed', pink);
+      accent.querySelector('.sr').textContent = pink ? 'Use the teal accent' : 'Use the pink accent';
+    };
+    syncAccent();
+    accent.addEventListener('click', function () {
+      root.dataset.accent = root.dataset.accent === 'pink' ? 'teal' : 'pink';
+      remember('accent', root.dataset.accent);
+      syncAccent();
+    });
+  }
+
+  // Motion: pause every animation, including the ticker.
+  var motion = document.querySelector('.motion-toggle');
+  if (motion) {
+    if (!root.dataset.motion && reduced) root.dataset.motion = 'off';
+    var syncMotion = function () {
+      var off = root.dataset.motion === 'off';
+      motion.setAttribute('aria-pressed', off);
+      motion.querySelector('.sr').textContent = off ? 'Play animations' : 'Pause animations';
+    };
+    syncMotion();
+    motion.addEventListener('click', function () {
+      root.dataset.motion = root.dataset.motion === 'off' ? 'on' : 'off';
+      remember('motion', root.dataset.motion);
+      syncMotion();
+    });
+  }
+
+  // Project filters.
+  var buttons = document.querySelectorAll('.filters .chip-btn');
+  var cards = document.querySelectorAll('#projects [data-tags]');
+  var status = document.querySelector('.filter-status');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.dataset.filter, shown = 0;
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn); });
+      cards.forEach(function (card) {
+        var match = f === 'all' || card.dataset.tags.split(' ').indexOf(f) !== -1;
+        var wasHidden = card.classList.contains('filtered-out');
+        card.classList.toggle('filtered-out', !match);
+        card.classList.toggle('just-shown', match && wasHidden);
+        if (match) { shown++; card.classList.add('in'); }
+      });
+      status.textContent = f === 'all' ? '' : shown + (shown === 1 ? ' project' : ' projects');
+    });
+  });
 
   // Header border once the page scrolls.
   var header = document.querySelector('.site-header');
@@ -27,7 +80,7 @@
     if (counted.has(el)) return;
     counted.add(el);
     var target = +el.dataset.count;
-    if (reduced) { el.textContent = target; return; }
+    if (reduced || root.dataset.motion === 'off') { el.textContent = target; return; }
     var start = null;
     function step(t) {
       if (!start) start = t;

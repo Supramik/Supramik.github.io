@@ -13,7 +13,10 @@
   <link rel="stylesheet" href="styles.css">
   <script>
     document.documentElement.classList.add('js');
-    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    try {
+      var d = document.documentElement.dataset;
+      ['theme', 'accent', 'motion'].forEach(function (k) { var v = localStorage.getItem(k); if (v) d[k] = v; });
+    } catch (e) {}
   </script>
   <script src="main.js" defer></script>
 </head>
@@ -35,10 +38,20 @@
         <a href="#seminars">Seminars</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+      <div class="toggles" role="group" aria-label="Display settings">
+      <button class="toggle accent-toggle" type="button" aria-pressed="false" title="Accent color: teal or pink">
+        <span class="swatch" aria-hidden="true"></span><span class="sr">Use the pink accent</span>
+      </button>
+      <button class="toggle motion-toggle" type="button" aria-pressed="false" title="Pause or play animations">
+        <svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+        <svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+        <span class="sr">Pause animations</span>
+      </button>
+      <button class="toggle theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Light or dark mode">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
       </button>
+      </div>
       <a class="button small" href="assets/Medina_CV.pdf" download>CV</a>
     </div>
   </header>
@@ -96,7 +109,7 @@
     </div>
 
     <section id="about">
-      <div class="wrap about-grid">
+      <div class="wrap narrow">
         <div class="reveal">
           <p class="eyebrow"><span class="num">01</span>About</p>
           <h2>Systems first, with an analyst's eye</h2>
@@ -104,25 +117,6 @@
           <p>My practicum showed me the other side of IT: sitting with business users, mapping how their work actually happens, and turning that into a system they can use. I'd like a role where both of those skills count.</p>
         </div>
 
-        <aside class="card handle-card reveal" aria-labelledby="handle-title">
-          <p class="eyebrow"><span class="num">♪</span>About the handle</p>
-          <h3 id="handle-title" class="handle-equation"><span class="supra">Supra</span> + <span class="mik">Mik</span> = Supramik</h3>
-          <div class="gauge" aria-hidden="true">
-            <svg viewBox="0 0 200 120">
-              <path class="gauge-track" d="M20 110 A 80 80 0 0 1 180 110"/>
-              <path class="gauge-red" d="M156.6 53.4 A 80 80 0 0 1 180 110"/>
-              <g class="gauge-ticks">
-                <text x="16" y="104">0</text><text x="34" y="60">2</text><text x="74" y="30">4</text><text x="122" y="30">6</text><text x="162" y="60">8</text>
-              </g>
-              <g class="needle"><line x1="100" y1="110" x2="100" y2="42"/><circle cx="100" cy="110" r="6"/></g>
-              <text class="gauge-label" x="100" y="96">RPM ×1000</text>
-            </svg>
-          </div>
-          <dl class="handle-list">
-            <div><dt>Supra</dt><dd>The Toyota Supra, my favorite car as a kid.</dd></div>
-            <div><dt>Mik</dt><dd>From Hatsune Miku, which is also where this site's teal comes from.</dd></div>
-          </dl>
-        </aside>
       </div>
     </section>
 
@@ -147,7 +141,7 @@
             <p class="dates">April – July 2026</p>
           </header>
 
-          <p>Gardenia's MIS business analysts run projects end to end. They gather requirements from the business units, design the process, write the functional specification that developers and testers work from, and follow the work through testing. I trained into that role and spent most of my practicum on one project, with quality assurance work alongside it.</p>
+          <p>Gardenia's MIS business analysts work much like project managers, running projects end to end. They gather requirements from the business units, design the process, write the functional specification that developers and testers work from, and follow the work through testing. I trained into that role and spent most of my practicum on one project, with quality assurance work alongside it.</p>
 
           <div class="case">
             <h4>Main project: digitizing document control</h4>
@@ -182,10 +176,15 @@
               </ul>
             </div>
             <div>
+              <h4>AppSheet access-request app</h4>
+              <p class="roles"><span>BA</span><span>QA</span><span>Dev</span></p>
+              <ul>
+                <li>Supported a low-code app that replaced a Google Form for requesting access to company systems, while a fellow intern led the build.</li>
+                <li>Took down the requestor's changing requirements and helped keep the feature list; tested the multi-stage approval flow against test scenarios; built fields with conditional logic and corrected outdated options.</li>
+              </ul>
               <h4>Also</h4>
               <ul>
                 <li>Mapped the customer and product fields of the legacy sales systems for a planned migration.</li>
-                <li>Supported an AppSheet access-request app at the start of its development.</li>
               </ul>
             </div>
           </div>
@@ -200,9 +199,17 @@
     <section id="projects">
       <div class="wrap">
         <p class="eyebrow reveal"><span class="num">03</span>Projects</p>
-        <h2 class="reveal">School projects and research</h2>
+        <h2 class="reveal">Projects and research</h2>
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button type="button" class="chip-btn" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip-btn" data-filter="systems" aria-pressed="false">Systems &amp; security</button>
+          <button type="button" class="chip-btn" data-filter="analysis" aria-pressed="false">Business analysis</button>
+          <button type="button" class="chip-btn" data-filter="dev" aria-pressed="false">Development</button>
+          <button type="button" class="chip-btn" data-filter="research" aria-pressed="false">Research</button>
+          <p class="filter-status" aria-live="polite"></p>
+        </div>
         <div class="grid">
-          <article class="card project feature reveal">
+          <article class="card project feature reveal" data-tags="dev systems analysis">
             <figure><img src="assets/img/capstone-framework.webp" width="633" height="552" loading="lazy" alt="Part of the capstone's conceptual framework, showing the citizen mobile app, the CDRRMO web portal, and the responder app."></figure>
             <div class="body">
               <p class="meta"><span class="trk">Track 01</span>Capstone · 2025 – present · Researcher &amp; Developer</p>
@@ -212,20 +219,41 @@
             </div>
           </article>
 
-          <article class="card project reveal">
+          <article class="card project feature terminal-card reveal" data-tags="dev systems">
+            <figure class="terminal" aria-label="Example of a dry run">
+              <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>subproof — dry run</span></div>
+<pre><code><span class="prompt">$</span> python subproof.py ./inbox --dry-run
+3 file(s) [dry run]
+  episode-01.ass: 412 lines, ~11 API calls
+  episode-02.ass: 389 lines, ~10 API calls
+  episode-03.srt: 356 lines, ~9 API calls
+<span class="prompt">$</span> python subproof.py ./inbox -o ./proofed \
+    --template house.ass --report changes.txt
+  episode-01.ass: 37/412 changed -&gt; episode-01.ass<span class="cursor" aria-hidden="true"></span></code></pre>
+              <figcaption>Example output with made-up file names.</figcaption>
+            </figure>
+            <div class="body">
+              <p class="meta"><span class="trk">Track 02</span>Personal project · 2026 · Python</p>
+              <h3>subproof: LLM-Assisted Subtitle Proofreading</h3>
+              <p>I proofread subtitles part time, so I built a command-line tool that does the first pass. It sends only the dialogue text to a language model through OpenRouter, after hiding the typesetting tags behind placeholders, and checks every batch's line and placeholder counts before writing anything back. A batch that fails is retried once and otherwise left untouched. It also estimates API calls in a dry run, filters by style, applies house-style templates, works through files in parallel, and writes a change report for human review.</p>
+              <ul class="tags"><li>Python</li><li>OpenRouter</li><li>LLM APIs</li><li>pysubs2</li><li>CLI automation</li></ul>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-tags="research systems">
             <figure><img src="assets/img/fish-tacos-architecture.webp" width="457" height="439" loading="lazy" alt="Diagram of the cascaded cipher: plaintext passes through Blowfish, Salsa20, and AES to become ciphertext, and back."></figure>
             <div class="body">
-              <p class="meta"><span class="trk">Track 02</span>Research paper · November 2025 · Second author</p>
+              <p class="meta"><span class="trk">Track 03</span>Research paper · November 2025 · Second author</p>
               <h3>Fish Tacos!: A Multi-Layer Blowfish–Salsa20–AES Model</h3>
               <p>We evaluated a cascaded cipher implemented in Python. The ciphertext's randomness was measured with Shannon entropy, chi-squared, monobit, and runs tests, and the cipher's key generation, encryption, and decryption were benchmarked. The paper is written in IEEE conference format. With J.R. Dilag and G.L. Reyes.</p>
               <ul class="tags"><li>Python</li><li>PyCryptodome</li><li>Cryptography</li></ul>
             </div>
           </article>
 
-          <article class="card project reveal">
+          <article class="card project reveal" data-tags="dev">
             <figure><img src="assets/img/ncap-intersection.webp" width="1200" height="697" loading="lazy" alt="Layout of the four-way intersection, with a traffic light and an ultrasonic detection sensor on each approach."></figure>
             <div class="body">
-              <p class="meta"><span class="trk">Track 03</span>IoT machine problem · Oct – Nov 2025 · Programmer</p>
+              <p class="meta"><span class="trk">Track 04</span>IoT machine problem · Oct – Nov 2025 · Programmer</p>
               <h3>NCAP Traffic Light System</h3>
               <p>A four-way intersection controller for no-contact apprehension. An Arduino UNO and a WeMos D1 (ESP8266) run the lights. Four ultrasonic sensors catch cars that cross on red, sounding a buzzer and logging the violation, and pedestrian buttons stop traffic on demand. Violations can be viewed in an Android app and on a web interface backed by MySQL. Built by a group of five.</p>
               <ul class="tags"><li>Arduino</li><li>ESP8266</li><li>Android Studio</li><li>XAMPP</li><li>MySQL</li></ul>
@@ -234,32 +262,32 @@
         </div>
 
         <div class="grid three">
-          <article class="card reveal">
-            <p class="meta"><span class="trk">Track 04</span>Systems Analysis &amp; Design · Sep – Nov 2024</p>
+          <article class="card reveal" data-tags="analysis">
+            <p class="meta"><span class="trk">Track 05</span>Systems Analysis &amp; Design · Sep – Nov 2024</p>
             <h3>Production MIS for Showa Advance Manufacturing</h3>
             <p>An analysis and design of a production management information system for a real manufacturing client in Laguna Technopark, by a team of four. We interviewed the client, modeled the current and proposed systems with data flow diagrams and HIPO and IPO charts, and built a Figma prototype. I kept the project schedule and the meeting minutes.</p>
             <ul class="tags"><li>Systems analysis</li><li>Data flow diagrams</li><li>Figma</li></ul>
           </article>
-          <article class="card reveal">
-            <p class="meta"><span class="trk">Track 05</span>Machine problem · July 2025</p>
+          <article class="card reveal" data-tags="dev systems">
+            <p class="meta"><span class="trk">Track 06</span>Machine problem · July 2025</p>
             <h3>Password Manager</h3>
             <p>An Android app in Kotlin that stores encrypted passwords in a MariaDB database through PHP endpoints. I also researched Android's Autofill and Credential Manager for the save-password prompt.</p>
             <ul class="tags"><li>Kotlin</li><li>PHP</li><li>MariaDB</li></ul>
           </article>
-          <article class="card reveal">
-            <p class="meta"><span class="trk">Track 06</span>Ethical hacking · June 2025 · Individual</p>
+          <article class="card reveal" data-tags="systems">
+            <p class="meta"><span class="trk">Track 07</span>Ethical hacking · June 2025 · Individual</p>
             <h3>Vulnerability Assessment</h3>
             <p>A vulnerability assessment and penetration test of a target virtual machine from Kali Linux: host discovery with fping, port scanning, and a Nessus vulnerability scan, written up as a full report.</p>
             <ul class="tags"><li>Kali Linux</li><li>Nmap</li><li>Nessus</li></ul>
           </article>
-          <article class="card reveal">
-            <p class="meta"><span class="trk">Track 07</span>Cryptography · March 2025</p>
+          <article class="card reveal" data-tags="dev systems">
+            <p class="meta"><span class="trk">Track 08</span>Cryptography · March 2025</p>
             <h3>Cryptographic Program</h3>
             <p>A C# console app with the Caesar, Vigenère, and bitwise XOR ciphers, plus a custom cipher of our own. With J.R. Dilag.</p>
             <ul class="tags"><li>C#</li><li>.NET 8</li></ul>
           </article>
-          <article class="card reveal">
-            <p class="meta"><span class="trk">Track 08</span>Cisco Networking Academy · 2024 – 2025</p>
+          <article class="card reveal" data-tags="systems">
+            <p class="meta"><span class="trk">Track 09</span>Cisco Networking Academy · 2024 – 2025</p>
             <h3>CCNA Coursework</h3>
             <p>Introduction to Networks: 100/100 on the departmental final exam. Switching, Routing &amp; Wireless Essentials: 97% on the course final exam and 100% on the final Packet Tracer skills assessment.</p>
             <ul class="tags"><li>Routing &amp; switching</li><li>VLANs</li><li>Packet Tracer</li></ul>
