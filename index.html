@@ -5,74 +5,144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Miguel Joseph M. Medina · IT Portfolio</title>
   <meta name="description" content="Portfolio of Miguel Joseph M. Medina, BS Information Technology (Cybersecurity) at Mapúa Malayan Colleges Laguna: practicum, projects, skills, and certifications.">
+  <meta name="theme-color" content="#137a7f">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    document.documentElement.classList.add('js');
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <script src="main.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Miguel Medina</a>
+      <a class="brand" href="#top" aria-label="Miguel Medina, back to top">
+        <span class="eq eq-brand" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>Miguel Medina</span><span class="handle">@supramik</span>
+      </a>
       <nav aria-label="Sections">
+        <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
+        <a href="#certifications">Credentials</a>
         <a href="#seminars">Seminars</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="button small" href="assets/Medina_CV.pdf" download>Download CV</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+      </button>
+      <a class="button small" href="assets/Medina_CV.pdf" download>CV</a>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="top">
+      <div class="stage" aria-hidden="true"></div>
       <div class="wrap hero-grid">
-        <div>
+        <div class="hero-copy">
           <p class="eyebrow with-eq"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>IT student · Cybersecurity track</p>
-          <h1>Miguel Joseph M. Medina</h1>
+          <h1>Miguel Joseph M. <span class="gradient-text">Medina</span></h1>
           <p class="lead">I'm a BS Information Technology student at Mapúa Malayan Colleges Laguna, specializing in Cybersecurity. During my practicum at Gardenia Bakeries Philippines, I took a quality document control process from requirements gathering to a working workflow in the company's document management system, and I tested production-bound releases. I'm looking for an entry-level role in systems administration or business analysis.</p>
           <div class="actions">
             <a class="button" href="assets/Medina_CV.pdf" download>Download CV</a>
             <a class="button ghost" href="mailto:migueljosephmedina@gmail.com">Email me</a>
+            <a class="button ghost" href="https://www.linkedin.com/in/miguel-joseph-medina-36428b3b3">LinkedIn</a>
             <a class="button ghost" href="https://github.com/Supramik">GitHub</a>
           </div>
         </div>
-        <aside class="facts" aria-label="Quick facts">
-          <dl>
+
+        <aside class="player" aria-label="Quick facts">
+          <div class="player-top">
+            <div class="cover" aria-hidden="true">
+              <span class="cover-num">01</span>
+              <span class="eq eq-cover"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+            <div class="track">
+              <p class="now"><span class="pulse" aria-hidden="true"></span>Now playing</p>
+              <p class="track-title">Open to entry-level roles</p>
+              <p class="track-artist">Systems administration · Business analysis</p>
+            </div>
+          </div>
+          <div class="progress" aria-hidden="true">
+            <div class="bar"><span></span></div>
+            <div class="times"><span>2022</span><span>BSIT · 2027</span></div>
+          </div>
+          <dl class="facts">
             <div><dt>Based in</dt><dd>Cabuyao City, Laguna</dd></div>
             <div><dt>Degree</dt><dd>BS Information Technology, Cybersecurity track · expected 2027</dd></div>
             <div><dt>Practicum</dt><dd>Business Analyst Intern, Gardenia Bakeries Philippines · 486 hours</dd></div>
             <div><dt>Certified</dt><dd>CompTIA Tech+ · TOEIC Listening &amp; Reading 890</dd></div>
-            <div><dt>Status</dt><dd><span class="dot" aria-hidden="true"></span>Open to entry-level roles</dd></div>
+          </dl>
+        </aside>
+      </div>
+      <svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 30 Q 50 5 100 30 T 200 30 T 300 30 T 400 30 T 500 30 T 600 30 T 700 30 T 800 30 T 900 30 T 1000 30 T 1100 30 T 1200 30 T 1300 30 T 1400 30 T 1500 30 T 1600 30 T 1700 30 T 1800 30 T 1900 30 T 2000 30 T 2100 30 T 2200 30 T 2300 30 T 2400 30"/>
+      </svg>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Windows Server</span><span>Active Directory</span><span>Linux</span><span>CCNA networking</span><span>Vulnerability assessment</span><span>Requirements gathering</span><span>Process modeling</span><span>Test case design</span><span>Next.js</span><span>Supabase</span><span>Python</span><span>Kotlin</span><span>CompTIA Tech+</span>
+        <span>Windows Server</span><span>Active Directory</span><span>Linux</span><span>CCNA networking</span><span>Vulnerability assessment</span><span>Requirements gathering</span><span>Process modeling</span><span>Test case design</span><span>Next.js</span><span>Supabase</span><span>Python</span><span>Kotlin</span><span>CompTIA Tech+</span>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="reveal">
+          <p class="eyebrow"><span class="num">01</span>About</p>
+          <h2>Systems first, with an analyst's eye</h2>
+          <p>My coursework covered Windows Server and Active Directory, Linux, CCNA networking, ethical hacking, and systems analysis and design. Keeping systems organized, secure, and running is the work I want to grow in, which is why systems administration is my first choice.</p>
+          <p>My practicum showed me the other side of IT: sitting with business users, mapping how their work actually happens, and turning that into a system they can use. I'd like a role where both of those skills count.</p>
+        </div>
+
+        <aside class="card handle-card reveal" aria-labelledby="handle-title">
+          <p class="eyebrow"><span class="num">♪</span>About the handle</p>
+          <h3 id="handle-title" class="handle-equation"><span class="supra">Supra</span> + <span class="mik">Mik</span> = Supramik</h3>
+          <div class="gauge" aria-hidden="true">
+            <svg viewBox="0 0 200 120">
+              <path class="gauge-track" d="M20 110 A 80 80 0 0 1 180 110"/>
+              <path class="gauge-red" d="M156.6 53.4 A 80 80 0 0 1 180 110"/>
+              <g class="gauge-ticks">
+                <text x="16" y="104">0</text><text x="34" y="60">2</text><text x="74" y="30">4</text><text x="122" y="30">6</text><text x="162" y="60">8</text>
+              </g>
+              <g class="needle"><line x1="100" y1="110" x2="100" y2="42"/><circle cx="100" cy="110" r="6"/></g>
+              <text class="gauge-label" x="100" y="96">RPM ×1000</text>
+            </svg>
+          </div>
+          <dl class="handle-list">
+            <div><dt>Supra</dt><dd>The Toyota Supra, my favorite car as a kid.</dd></div>
+            <div><dt>Mik</dt><dd>From Hatsune Miku, which is also where this site's teal comes from.</dd></div>
           </dl>
         </aside>
       </div>
     </section>
 
-    <section id="about">
-      <div class="wrap narrow">
-        <p class="eyebrow">About</p>
-        <h2>Systems first, with an analyst's eye</h2>
-        <p>My coursework covered Windows Server and Active Directory, Linux, CCNA networking, ethical hacking, and systems analysis and design. Keeping systems organized, secure, and running is the work I want to grow in, which is why systems administration is my first choice.</p>
-        <p>My practicum showed me the other side of IT: sitting with business users, mapping how their work actually happens, and turning that into a system they can use. I'd like a role where both of those skills count.</p>
-      </div>
-    </section>
-
     <section id="experience" class="tinted">
       <div class="wrap">
-        <p class="eyebrow">Experience</p>
-        <h2>Practicum: Business Analyst Intern</h2>
+        <p class="eyebrow reveal"><span class="num">02</span>Experience</p>
+        <h2 class="reveal">Practicum: Business Analyst Intern</h2>
 
-        <article class="card experience">
+        <div class="stats reveal">
+          <div><strong data-count="486">486</strong><span>practicum hours</span></div>
+          <div><strong data-count="14">14</strong><span>weeks at Gardenia</span></div>
+          <div><strong data-count="3">3</strong><span>process pools designed</span></div>
+          <div><strong data-count="11">11</strong><span>workflow steps built</span></div>
+        </div>
+
+        <article class="card experience reveal">
           <header class="experience-head">
             <div>
               <h3>Gardenia Bakeries (Philippines), Inc.</h3>
-              <p class="meta">MIS Department · Biñan, Laguna · IT199F practicum, 486 hours</p>
+              <p class="meta">MIS Department · Biñan, Laguna · IT199F practicum</p>
             </div>
             <p class="dates">April – July 2026</p>
           </header>
@@ -129,68 +199,67 @@
 
     <section id="projects">
       <div class="wrap">
-        <p class="eyebrow">Projects</p>
-        <h2>School projects and research</h2>
+        <p class="eyebrow reveal"><span class="num">03</span>Projects</p>
+        <h2 class="reveal">School projects and research</h2>
         <div class="grid">
-          <article class="card project feature">
+          <article class="card project feature reveal">
             <figure><img src="assets/img/capstone-framework.webp" width="633" height="552" loading="lazy" alt="Part of the capstone's conceptual framework, showing the citizen mobile app, the CDRRMO web portal, and the responder app."></figure>
             <div class="body">
-              <p class="meta">Capstone · 2025 – present · Researcher &amp; Developer</p>
+              <p class="meta"><span class="trk">Track 01</span>Capstone · 2025 – present · Researcher &amp; Developer</p>
               <h3>Community-Based Reporting and Response System with Geotagging</h3>
               <p>A cross-platform system built with the Biñan City Disaster Risk Reduction and Management Office. Citizens send geotagged incident reports from a mobile app, CDRRMO operators manage them from a web command center, and responders work from their own app. I built the role-based admin portal with MFA-secured operator login, and the citizen identity verification flow, which uses government ID upload, image review through signed URLs, and full audit logging. The system was designed to comply with the Data Privacy Act of 2012. With J.R. Dilag and G.L. Reyes.</p>
               <ul class="tags"><li>Next.js</li><li>React Native</li><li>TypeScript</li><li>Supabase</li><li>Row-Level Security</li></ul>
             </div>
           </article>
 
-          <article class="card project">
+          <article class="card project reveal">
             <figure><img src="assets/img/fish-tacos-architecture.webp" width="457" height="439" loading="lazy" alt="Diagram of the cascaded cipher: plaintext passes through Blowfish, Salsa20, and AES to become ciphertext, and back."></figure>
             <div class="body">
-              <p class="meta">Research paper · November 2025 · Second author</p>
+              <p class="meta"><span class="trk">Track 02</span>Research paper · November 2025 · Second author</p>
               <h3>Fish Tacos!: A Multi-Layer Blowfish–Salsa20–AES Model</h3>
               <p>We evaluated a cascaded cipher implemented in Python. The ciphertext's randomness was measured with Shannon entropy, chi-squared, monobit, and runs tests, and the cipher's key generation, encryption, and decryption were benchmarked. The paper is written in IEEE conference format. With J.R. Dilag and G.L. Reyes.</p>
               <ul class="tags"><li>Python</li><li>PyCryptodome</li><li>Cryptography</li></ul>
             </div>
           </article>
 
-          <article class="card project">
+          <article class="card project reveal">
             <figure><img src="assets/img/ncap-intersection.webp" width="1200" height="697" loading="lazy" alt="Layout of the four-way intersection, with a traffic light and an ultrasonic detection sensor on each approach."></figure>
             <div class="body">
-              <p class="meta">IoT machine problem · Oct – Nov 2025 · Programmer</p>
+              <p class="meta"><span class="trk">Track 03</span>IoT machine problem · Oct – Nov 2025 · Programmer</p>
               <h3>NCAP Traffic Light System</h3>
               <p>A four-way intersection controller for no-contact apprehension. An Arduino UNO and a WeMos D1 (ESP8266) run the lights. Four ultrasonic sensors catch cars that cross on red, sounding a buzzer and logging the violation, and pedestrian buttons stop traffic on demand. Violations can be viewed in an Android app and on a web interface backed by MySQL. Built by a group of five.</p>
               <ul class="tags"><li>Arduino</li><li>ESP8266</li><li>Android Studio</li><li>XAMPP</li><li>MySQL</li></ul>
             </div>
           </article>
-
         </div>
 
         <div class="grid three">
-          <article class="card">
-            <p class="meta">Systems Analysis &amp; Design · Sep – Nov 2024 · Team of four</p>
+          <article class="card reveal">
+            <p class="meta"><span class="trk">Track 04</span>Systems Analysis &amp; Design · Sep – Nov 2024</p>
             <h3>Production MIS for Showa Advance Manufacturing</h3>
-            <p>An analysis and design of a production management information system for a real manufacturing client in Laguna Technopark. We interviewed the client, modeled the current and proposed systems with data flow diagrams and HIPO and IPO charts, and built a Figma prototype. I kept the project schedule and the meeting minutes.</p>
+            <p>An analysis and design of a production management information system for a real manufacturing client in Laguna Technopark, by a team of four. We interviewed the client, modeled the current and proposed systems with data flow diagrams and HIPO and IPO charts, and built a Figma prototype. I kept the project schedule and the meeting minutes.</p>
             <ul class="tags"><li>Systems analysis</li><li>Data flow diagrams</li><li>Figma</li></ul>
           </article>
-          <article class="card">
-            <p class="meta">Machine problem · July 2025</p>
+          <article class="card reveal">
+            <p class="meta"><span class="trk">Track 05</span>Machine problem · July 2025</p>
             <h3>Password Manager</h3>
             <p>An Android app in Kotlin that stores encrypted passwords in a MariaDB database through PHP endpoints. I also researched Android's Autofill and Credential Manager for the save-password prompt.</p>
             <ul class="tags"><li>Kotlin</li><li>PHP</li><li>MariaDB</li></ul>
           </article>
-          <article class="card">
-            <p class="meta">Ethical hacking · June 2025 · Individual</p>
+          <article class="card reveal">
+            <p class="meta"><span class="trk">Track 06</span>Ethical hacking · June 2025 · Individual</p>
             <h3>Vulnerability Assessment</h3>
             <p>A vulnerability assessment and penetration test of a target virtual machine from Kali Linux: host discovery with fping, port scanning, and a Nessus vulnerability scan, written up as a full report.</p>
             <ul class="tags"><li>Kali Linux</li><li>Nmap</li><li>Nessus</li></ul>
           </article>
-          <article class="card">
-            <p class="meta">Cryptography · March 2025</p>
+          <article class="card reveal">
+            <p class="meta"><span class="trk">Track 07</span>Cryptography · March 2025</p>
             <h3>Cryptographic Program</h3>
             <p>A C# console app with the Caesar, Vigenère, and bitwise XOR ciphers, plus a custom cipher of our own. With J.R. Dilag.</p>
             <ul class="tags"><li>C#</li><li>.NET 8</li></ul>
           </article>
-          <article class="card">
-            <p class="meta">Cisco Networking Academy · 2024 – 2025</p>
+          <article class="card reveal">
+            <p class="meta"><span class="trk">Track 08</span>Cisco Networking Academy · 2024 – 2025</p>
             <h3>CCNA Coursework</h3>
             <p>Introduction to Networks: 100/100 on the departmental final exam. Switching, Routing &amp; Wireless Essentials: 97% on the course final exam and 100% on the final Packet Tracer skills assessment.</p>
             <ul class="tags"><li>Routing &amp; switching</li><li>VLANs</li><li>Packet Tracer</li></ul>
@@ -201,60 +270,60 @@
 
     <section id="skills" class="tinted">
       <div class="wrap">
-        <p class="eyebrow">Skills</p>
-        <h2>What I work with</h2>
+        <p class="eyebrow reveal"><span class="num">04</span>Skills</p>
+        <h2 class="reveal">What I work with</h2>
         <div class="skills">
-          <div><h3>Systems &amp; networking</h3><ul class="tags"><li>Windows Server</li><li>Active Directory</li><li>Linux (Kali, Pop!_OS)</li><li>LAN/WAN</li><li>VLANs</li><li>ACLs</li><li>Cisco Packet Tracer</li><li>VirtualBox</li></ul></div>
-          <div><h3>Security</h3><ul class="tags"><li>Vulnerability assessment</li><li>Kali Linux</li><li>Nmap</li><li>Nessus</li><li>Applied cryptography</li></ul></div>
-          <div><h3>Business analysis &amp; QA</h3><ul class="tags"><li>Requirements gathering</li><li>Process modeling (draw.io)</li><li>Functional specifications</li><li>Test case design</li><li>Jira</li></ul></div>
-          <div><h3>Development</h3><ul class="tags"><li>Python</li><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>Kotlin</li><li>PHP</li><li>C#</li><li>C++</li><li>SQL</li><li>React</li><li>React Native</li><li>Next.js</li><li>Supabase</li></ul></div>
-          <div><h3>Databases &amp; platforms</h3><ul class="tags"><li>MySQL / MariaDB</li><li>PostgreSQL</li><li>SQL Server</li><li>IComTeq IMS</li><li>Google AppSheet</li><li>Google Workspace</li></ul></div>
-          <div><h3>Languages</h3><ul class="tags"><li>English (TOEIC L&amp;R 890; Speaking 170, Writing 200)</li><li>Filipino</li></ul></div>
+          <div class="reveal"><h3><span class="ico" aria-hidden="true">⌘</span>Systems &amp; networking</h3><ul class="tags"><li>Windows Server</li><li>Active Directory</li><li>Linux (Kali, Pop!_OS)</li><li>LAN/WAN</li><li>VLANs</li><li>ACLs</li><li>Cisco Packet Tracer</li><li>VirtualBox</li></ul></div>
+          <div class="reveal"><h3><span class="ico" aria-hidden="true">⛨</span>Security</h3><ul class="tags"><li>Vulnerability assessment</li><li>Kali Linux</li><li>Nmap</li><li>Nessus</li><li>Applied cryptography</li></ul></div>
+          <div class="reveal"><h3><span class="ico" aria-hidden="true">◇</span>Business analysis &amp; QA</h3><ul class="tags"><li>Requirements gathering</li><li>Process modeling (draw.io)</li><li>Functional specifications</li><li>Test case design</li><li>Jira</li></ul></div>
+          <div class="reveal"><h3><span class="ico" aria-hidden="true">&lt;/&gt;</span>Development</h3><ul class="tags"><li>Python</li><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>Kotlin</li><li>PHP</li><li>C#</li><li>C++</li><li>SQL</li><li>React</li><li>React Native</li><li>Next.js</li><li>Supabase</li></ul></div>
+          <div class="reveal"><h3><span class="ico" aria-hidden="true">▤</span>Databases &amp; platforms</h3><ul class="tags"><li>MySQL / MariaDB</li><li>PostgreSQL</li><li>SQL Server</li><li>IComTeq IMS</li><li>Google AppSheet</li><li>Google Workspace</li></ul></div>
+          <div class="reveal"><h3><span class="ico" aria-hidden="true">♪</span>Languages</h3><ul class="tags"><li>English (TOEIC L&amp;R 890; Speaking 170, Writing 200)</li><li>Filipino</li></ul></div>
         </div>
       </div>
     </section>
 
     <section id="certifications">
       <div class="wrap">
-        <p class="eyebrow">Certifications &amp; honors</p>
-        <h2>Credentials</h2>
-        <ul class="certs">
-          <li><div><strong>CompTIA Tech+</strong><span>CompTIA · December 2025 · verification code <code>fea0dc17009941df9d3a7e08ca1d27a4</code></span></div><a href="https://verify.comptia.org">Verify</a></li>
-          <li><div><strong>Full Stack Web Development</strong><span>Amazon, via Coursera · March 2026</span></div><a href="https://coursera.org/verify/CALSO103P3VW">Verify</a></li>
-          <li><div><strong>Foundations of Project Management</strong><span>Google, via Coursera · March 2026</span></div><a href="https://coursera.org/verify/RC4T1KVKFBHN">Verify</a></li>
+        <p class="eyebrow reveal"><span class="num">05</span>Certifications &amp; honors</p>
+        <h2 class="reveal">Credentials</h2>
+        <ul class="certs reveal">
+          <li><div><strong>CompTIA Tech+</strong><span>CompTIA · December 2025 · verification code <code>fea0dc17009941df9d3a7e08ca1d27a4</code></span></div><a class="verify" href="https://verify.comptia.org">Verify</a></li>
+          <li><div><strong>Full Stack Web Development</strong><span>Amazon, via Coursera · March 2026</span></div><a class="verify" href="https://coursera.org/verify/CALSO103P3VW">Verify</a></li>
+          <li><div><strong>Foundations of Project Management</strong><span>Google, via Coursera · March 2026</span></div><a class="verify" href="https://coursera.org/verify/RC4T1KVKFBHN">Verify</a></li>
           <li><div><strong>Job Ready: Employability Skills (Basic)</strong><span>Wadhwani Foundation · July 2026 · 75 hours</span></div></li>
           <li><div><strong>Google Cloud Computing Foundations</strong><span>Google · 2025</span></div></li>
           <li><div><strong>Ethical Hacker (badge)</strong><span>Cisco · 2025</span></div></li>
           <li><div><strong>TOEIC</strong><span>ETS · June 2025 · Listening &amp; Reading 890; Speaking 170, Writing 200</span></div></li>
         </ul>
-        <p class="honors"><strong>Honors:</strong> Dean's List (A.Y. 2022–2025) · one-semester scholarship (2022)</p>
+        <p class="honors reveal"><strong>Honors:</strong> Dean's List (A.Y. 2022–2025) · one-semester scholarship (2022)</p>
       </div>
     </section>
 
     <section id="seminars" class="tinted">
       <div class="wrap">
-        <p class="eyebrow">Seminars</p>
-        <h2>Seminars and workshops</h2>
+        <p class="eyebrow reveal"><span class="num">06</span>Seminars</p>
+        <h2 class="reveal">Seminars and workshops</h2>
         <div class="grid two">
-          <article class="card">
+          <article class="card reveal">
             <p class="meta">March 14, 2026 · Onsite, 4 hours · MMCL CCIS</p>
             <h3>Cloud Foundations: From Core Concepts to Career Certification</h3>
             <p>A network engineer sketched VPCs, subnets, and edge locations on the board, then demonstrated the firewall software his company uses to manage traffic and stop threats.</p>
             <p class="takeaway">Watching a professional configure rules and read logs in a production-grade tool bridged my classroom theory and industry reality, and the career talk made the certification path feel attainable.</p>
           </article>
-          <article class="card">
+          <article class="card reveal">
             <p class="meta">March 16, 2026 · Webinar, 1 hour · EPCPS</p>
             <h3>Data Privacy and Protection in the Digital Era</h3>
             <p>An overview of the Data Privacy Act and good digital hygiene.</p>
             <p class="takeaway">"Privacy by design" isn't a buzzword for a capstone; it's a professional obligation. A leak isn't just a bug, it's a breach of rights.</p>
           </article>
-          <article class="card">
+          <article class="card reveal">
             <p class="meta">March 19, 2026 · Webinar, 1 hour · EPCPS</p>
             <h3>IoT Unplugged: From Devices to Data Intelligence</h3>
             <p>An industry view of IoT architecture, from sensors and gateways to cloud integration.</p>
             <p class="takeaway">The Internet of Things is less about the things themselves than about the insights pulled from the data they generate.</p>
           </article>
-          <article class="card">
+          <article class="card reveal">
             <p class="meta">Global AI Manila</p>
             <h3>AgentCamp</h3>
             <p>A hands-on workshop on building AI agents.</p>
@@ -265,21 +334,31 @@
     </section>
 
     <section id="contact">
-      <div class="wrap narrow center">
-        <p class="eyebrow">Contact</p>
-        <h2>Let's talk</h2>
-        <p>I'm open to entry-level roles in systems administration and business analysis. Email is the best way to reach me.</p>
-        <p><a class="email" href="mailto:migueljosephmedina@gmail.com">migueljosephmedina@gmail.com</a></p>
-        <div class="actions centered">
-          <a class="button" href="assets/Medina_CV.pdf" download>Download CV</a>
-          <a class="button ghost" href="https://github.com/Supramik">GitHub</a>
+      <div class="wrap">
+        <div class="cta reveal">
+          <p class="eyebrow"><span class="num">07</span>Contact</p>
+          <h2>Let's talk</h2>
+          <p>I'm open to entry-level roles in systems administration and business analysis. Email is the best way to reach me.</p>
+          <p><a class="email" href="mailto:migueljosephmedina@gmail.com">migueljosephmedina@gmail.com</a></p>
+          <div class="actions centered">
+            <a class="button light" href="assets/Medina_CV.pdf" download>Download CV</a>
+            <a class="button outline-light" href="https://www.linkedin.com/in/miguel-joseph-medina-36428b3b3">LinkedIn</a>
+            <a class="button outline-light" href="https://github.com/Supramik">GitHub</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner"><span>© 2026 Miguel Joseph M. Medina</span><span class="nod">Colors inspired by a certain teal-haired virtual singer <span aria-hidden="true">♪</span></span></div>
+    <div class="wrap">
+      <p class="wordmark" aria-hidden="true">SUPRAMIK</p>
+      <div class="footer-inner">
+        <span>© 2026 Miguel Joseph M. Medina</span>
+        <span class="footer-links"><a href="https://www.linkedin.com/in/miguel-joseph-medina-36428b3b3">LinkedIn</a><a href="https://github.com/Supramik">GitHub</a><a href="#top">Back to top ↑</a></span>
+        <span class="nod">Colors inspired by a certain teal-haired virtual singer <span aria-hidden="true">♪</span></span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
