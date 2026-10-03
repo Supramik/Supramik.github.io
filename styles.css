@@ -434,3 +434,6 @@ section.tinted { background: var(--tint); border-block: 1px solid var(--line); }
   .filters { margin-top: -8px; }
   .filter-status { width: 100%; margin: 4px 0 0; }
 }
+
+/* Second experience card */
+.card.experience.job { margin-top: 22px; }
