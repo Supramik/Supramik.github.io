@@ -80,12 +80,13 @@
     if (counted.has(el)) return;
     counted.add(el);
     var target = +el.dataset.count;
-    if (reduced || root.dataset.motion === 'off') { el.textContent = target; return; }
+    var show = function (n) { el.textContent = n.toLocaleString('en-US'); };
+    if (reduced || root.dataset.motion === 'off') { show(target); return; }
     var start = null;
     function step(t) {
       if (!start) start = t;
       var p = Math.min((t - start) / 1200, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      show(Math.round(target * (1 - Math.pow(1 - p, 3))));
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
