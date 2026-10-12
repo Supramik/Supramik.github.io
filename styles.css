@@ -157,10 +157,7 @@ section.tinted { background: var(--tint); border-block: 1px solid var(--line); }
   display: flex; align-items: center; gap: 10px; color: var(--accent); font-weight: 700;
   font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; margin-bottom: .9em;
 }
-.eyebrow .num {
-  font-family: var(--mono); font-size: .78rem; color: var(--accent-ink); background: var(--accent);
-  padding: 2px 7px; border-radius: 6px; letter-spacing: 0;
-}
+.eyebrow:not(.with-eq)::before { content: ""; flex: none; width: 22px; height: 3px; border-radius: 2px; background: var(--gradient); }
 .eyebrow.with-eq .eq { margin-right: 2px; }
 .meta { color: var(--muted); font-size: .86rem; margin-bottom: .6em; }
 .trk { font-family: var(--mono); font-size: .74rem; color: var(--pink); margin-right: 10px; letter-spacing: .02em; }
@@ -316,7 +313,7 @@ section.tinted { background: var(--tint); border-block: 1px solid var(--line); }
 }
 .cta > * { position: relative; }
 .cta .eyebrow { justify-content: center; color: #fff; }
-.cta .eyebrow .num { background: rgba(255, 255, 255, .2); color: #fff; }
+.cta .eyebrow::before { background: rgba(255, 255, 255, .7); }
 .cta h2 { margin-bottom: .4em; }
 .cta p { max-width: 560px; margin-inline: auto; color: rgba(255, 255, 255, .9); }
 .email { color: #fff; font-size: clamp(1.1rem, 3vw, 1.6rem); font-weight: 800; overflow-wrap: anywhere; text-decoration-thickness: 2px; }
@@ -437,3 +434,36 @@ section.tinted { background: var(--tint); border-block: 1px solid var(--line); }
 
 /* Second experience card */
 .card.experience.job { margin-top: 22px; }
+
+/* Academic achievements band, right under the intro */
+.achievements-band { padding: 46px 0 40px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.achievements { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.achievement {
+  position: relative; display: flex; align-items: center; gap: 14px; margin: 0; padding: 18px 20px;
+  border-radius: 16px; background: var(--tint); border: 1px solid var(--line); overflow: hidden;
+}
+.achievement::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--gradient); }
+.ach-icon { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--gradient-diag); color: #fff; font-size: 1.15rem; box-shadow: 0 8px 18px color-mix(in srgb, var(--miku) 30%, transparent); }
+.achievement strong { display: block; font-size: 1.08rem; font-weight: 800; letter-spacing: -.01em; }
+.achievement span { color: var(--muted); font-size: .88rem; }
+
+/* Software learned at Gardenia */
+.sw-note { color: var(--muted); font-size: .88rem; margin: -4px 0 12px; }
+.software { list-style: none; padding: 0; margin: 0 0 6px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.sw { margin: 0; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); transition: border-color .2s, transform .2s; }
+.sw:hover { border-color: color-mix(in srgb, var(--miku) 55%, var(--line)); transform: translateY(-2px); }
+.sw .cat { display: block; font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 4px; }
+.sw strong { display: block; font-size: .98rem; }
+.sw p { margin: 4px 0 0; font-size: .86rem; color: var(--muted); line-height: 1.5; }
+.new { display: inline-block; font-family: var(--mono); font-size: .62rem; font-weight: 700; letter-spacing: .04em; color: var(--pink); border: 1px solid color-mix(in srgb, var(--pink) 45%, transparent); padding: 1px 7px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .achievements { grid-template-columns: 1fr; }
+  .software { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .software { grid-template-columns: 1fr; }
+}
+.ach-icon svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ach-icon svg .fill { fill: #fff; stroke: none; }
+.ach-icon svg .tick { stroke: #137a7f; stroke-width: 2.2; }
