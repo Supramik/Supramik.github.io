@@ -161,6 +161,7 @@ section.tinted { background: var(--tint); border-block: 1px solid var(--line); }
 .eyebrow.with-eq .eq { margin-right: 2px; }
 .meta { color: var(--muted); font-size: .86rem; margin-bottom: .6em; }
 .trk { font-family: var(--mono); font-size: .74rem; color: var(--pink); margin-right: 10px; letter-spacing: .02em; }
+.nw { white-space: nowrap; }
 
 /* Hero */
 .hero { padding: 84px 0 120px; overflow: hidden; }
